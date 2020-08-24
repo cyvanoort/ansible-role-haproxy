@@ -17,14 +17,14 @@
   become: yes
   template:
     src: global.tpl
-    dest: /etc/haproxy/templates/global.tpl
+    dest: /etc/haproxy/templates/000-global.tpl
     backup: yes
 
 - name: Place config for haproxy ssl
   become: yes
   template:
     src: ssl.tpl
-    dest: /etc/haproxy/templates/ssl.tpl
+    dest: /etc/haproxy/templates/001-ssl.tpl
     backup: yes
   with_items:
   - "{{ crtBase }}"
@@ -33,5 +33,12 @@
   become: yes
   template:
     src: defaults.tpl
-    dest: /etc/haproxy/templates/defaults.tpl
+    dest: /etc/haproxy/templates/002-defaults.tpl
+    backup: yes
+
+- name: Place config for haproxy stats
+  become: yes
+  template:
+    src: stats.tpl
+    dest: /etc/haproxy/templates/003-stats.tpl
     backup: yes

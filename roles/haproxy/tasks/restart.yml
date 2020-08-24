@@ -1,0 +1,9 @@
+---
+# tasks restart haproxy
+- name: restart and enable haproxy
+  become: yes
+  service:
+    name: haproxy
+    state: restarted
+    enabled: yes
+

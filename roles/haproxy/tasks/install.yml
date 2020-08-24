@@ -1,0 +1,6 @@
+# tasks file for haproxy
+- name: install haproxy
+  become: yes
+  apt:
+    name: ['haproxy']
+    state: latest

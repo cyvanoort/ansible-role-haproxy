@@ -1,2 +1,10 @@
 ---
 # tasks file for roles/haproxy
+- name: Install required
+  include_tasks: install.yml
+
+- name: Configure pacemaker
+  include_tasks: configure.yml
+
+- name: Restart to make changes persist
+  include_tasks: restart.yml

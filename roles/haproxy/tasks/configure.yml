@@ -1,28 +1,29 @@
 ---
 # tasks config for haproxy
 # Configuration will be split into multiple template files and then concatinated to one big file.
-- name: create folder to place template files
-  file:
-    path: /etc/haproxy/templates
-    state: directory
-
-- name: create folder for ssl
+- name: create folder to place cert files
+  become: yes
   file:
     path: /etc/haproxy/ssl
+    state: directory
+
+- name: create folder to place template files
+  file:
+    path: /opt/haproxy/templates
     state: directory
 
 - name: Place config for haproxy global
   become: yes
   template:
     src: global.tpl
-    dest: /etc/haproxy/templates/global.tpl
+    dest: /opt/haproxy/templates/global.tpl
     backup: yes
 
 - name: Place config for haproxy ssl
   become: yes
   template:
     src: ssl.tpl
-    dest: /etc/haproxy/templates/ssl.tpl
+    dest: /opt/haproxy/templates/ssl.tpl
     backup: yes
   with_items:
   - "{{ crtBase }}"
@@ -31,5 +32,5 @@
   become: yes
   template:
     src: defaults.tpl
-    dest: /etc/haproxy/templates/defaults.tpl
+    dest: /opt/haproxy/templates/defaults.tpl
     backup: yes

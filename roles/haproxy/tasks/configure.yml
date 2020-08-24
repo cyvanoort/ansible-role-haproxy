@@ -8,22 +8,23 @@
     state: directory
 
 - name: create folder to place template files
+  become: yes
   file:
-    path: /opt/haproxy/templates
+    path: /etc/haproxy/templates
     state: directory
 
 - name: Place config for haproxy global
   become: yes
   template:
     src: global.tpl
-    dest: /opt/haproxy/templates/global.tpl
+    dest: /etc/haproxy/templates/global.tpl
     backup: yes
 
 - name: Place config for haproxy ssl
   become: yes
   template:
     src: ssl.tpl
-    dest: /opt/haproxy/templates/ssl.tpl
+    dest: /etc/haproxy/templates/ssl.tpl
     backup: yes
   with_items:
   - "{{ crtBase }}"
@@ -32,5 +33,5 @@
   become: yes
   template:
     src: defaults.tpl
-    dest: /opt/haproxy/templates/defaults.tpl
+    dest: /etc/haproxy/templates/defaults.tpl
     backup: yes

@@ -26,8 +26,6 @@
     src: ssl.tpl
     dest: /etc/haproxy/templates/020-ssl.tpl
     backup: yes
-  with_items:
-  - "{{ crtBase }}"
 
 - name: Place config for haproxy defaults
   become: yes

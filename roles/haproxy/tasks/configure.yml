@@ -40,3 +40,9 @@
     src: stats.tpl
     dest: /etc/haproxy/templates/040-stats.tpl
     backup: yes
+
+- name: Assemble all templates into one file
+  become: yes
+  assemble:
+    dest: /etc/haproxy/haproxy.conf
+    src: /etc/haproxy/templates/

@@ -1,5 +1,5 @@
 ---
 # vars file for roles/haproxy
 crtBase: "/etc/haproxy/ssl"
-privateIp: "127.0.0.1"
+intIp: "127.0.0.1"
 statsPort: "8443"

@@ -1,5 +1,5 @@
 frontend www-stats
-        bind {{ privateIp }}:{{ statsPort }}
+        bind {{ intIp }}:{{ statsPort }}
         stats enable
         stats hide-version
         stats refresh 30s

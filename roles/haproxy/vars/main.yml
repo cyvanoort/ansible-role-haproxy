@@ -1,11 +1,3 @@
 ---
 # vars file for roles/haproxy
-crtBase: "/etc/haproxy/ssl"
-intIp: "127.0.0.1"
-statsPort: "8443"
-connectTimeout: "5000"
-clientTimeout: "50000"
-serverTimeout: "50000"
-enableStats: "enable"
-statsUri: "/stats"
 

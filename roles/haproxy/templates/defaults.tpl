@@ -3,9 +3,9 @@ defaults
         mode    http
         option  httplog
         option  dontlognull
-        timeout connect 5000
-        timeout client  50000
-        timeout server  50000
+        timeout connect {{ connectTimeout }}
+        timeout client  {{ clientTimeout }}
+        timeout server  {{ serverTimeout }}
         errorfile 400 /etc/haproxy/errors/400.http
         errorfile 403 /etc/haproxy/errors/403.http
         errorfile 408 /etc/haproxy/errors/408.http

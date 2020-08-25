@@ -40,5 +40,6 @@
 - name: Assemble all templates into one file
   become: yes
   assemble:
-    dest: /etc/haproxy/haproxy.conf
+    dest: /etc/haproxy/haproxy.cnf
     src: /etc/haproxy/templates/
+    backup: yes
